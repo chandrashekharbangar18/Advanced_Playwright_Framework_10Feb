@@ -59,7 +59,9 @@ Screenshots are retained on failure and traces are captured on the first retry. 
 │   ├── api/                  # API clients and helpers
 │   ├── config/               # Framework and environment configuration
 │   ├── fixtures/             # Shared Playwright fixtures
-│   ├── pages/                # BasePage and storefront page objects
+│   ├── pages/
+│   │   ├── BasePage.ts       # Shared page-object scaffolding
+│   │   └── LoginPage.ts      # TTACart login page object
 │   ├── testdata/             # Test data and data providers
 │   ├── tests/
 │   │   └── login.spec.ts
@@ -76,7 +78,7 @@ Screenshots are retained on failure and traces are captured on the first retry. 
 └── tsconfig.json
 ```
 
-Page objects share navigation, logging, and locator-action helpers. Keep reusable page interactions and test data in their corresponding folders rather than embedding framework-wide helpers directly in test files.
+The login page object and `login.spec.ts` demonstrate the browser page-object flow. `BasePage` provides shared navigation and logging, while `UtilElementLocator` centralizes common locator actions. The API, config, fixtures, and testdata directories are extension points; keep reusable framework code in its corresponding folder rather than embedding it in tests.
 
 ## Reports and CI
 
