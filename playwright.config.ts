@@ -64,10 +64,10 @@ export default defineConfig({
   use: {
     baseURL: resolveBaseURL(),
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
     trace: 'on-first-retry',
     actionTimeout: 15_000,
     navigationTimeout: 30_000,
+    video: process.platform === 'win32' ? 'off' : 'retain-on-failure',
     extraHTTPHeaders: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
