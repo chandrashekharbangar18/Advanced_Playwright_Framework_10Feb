@@ -44,7 +44,9 @@ The active browser project is Chromium; the API project discovers tests under `s
 │   └── workflows/
 │       ├── copilot-instructions.md
 │       └── playwright.yml
+├── AGENTS.md
 ├── CLAUDE.md
+├── Dockerfile
 ├── docs/
 │   └── phase1/
 │       └── prompts.md
@@ -74,5 +76,7 @@ The API, config, fixtures, pages, and testdata folders are framework extension p
 ## Reports and CI
 
 Playwright is configured to save screenshots on failure, videos on failure, and traces on the first retry. The GitHub Actions workflow installs dependencies and browsers, runs the suite, and uploads the HTML report artifact.
+
+Test runs generate HTML, JSON, Allure, and custom TTA reports in `playwright-report/`, `test-results/`, `allure-results/`, and `tta-report/`. These generated reports and results are ignored by Git and should not be committed.
 
 See [Phase 1 prompts](./docs/phase1/prompts.md) for the conversation prompt captured for this framework and a reusable student prompt.
