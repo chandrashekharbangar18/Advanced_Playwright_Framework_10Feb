@@ -1,0 +1,49 @@
+{
+  "name": "advanced_playwright_framework_1x",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "npm run test:e2e",
+    "test:ui": "playwright test --ui",
+    "test:chromium": "playwright test --browser=chromium",
+    "test:firefox": "playwright test --browser=firefox",
+    "test:debug": "playwright test --debug",
+    "test:e2e": "playwright test",
+    "test:p0": "playwright test --grep \"@P0\"",
+    "test:p1": "playwright test --grep \"@p1\"",
+    "test:report": "playwright show-report",
+    "test:report:ci": "playwright test --reporter=html",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\" playwright.config.ts eslint.config.js package.json",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx}\" playwright.config.ts eslint.config.js package.json",
+    "build": "tsc",
+    "clean": "node -e \"for (const path of ['dist', 'test-results', 'playwright-report']) require('node:fs').rmSync(path, { recursive: true, force: true })\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chandrashekharbangar18/Advanced_Playwright_Framework_10Feb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/chandrashekharbangar18/Advanced_Playwright_Framework_10Feb/issues"
+  },
+  "homepage": "https://github.com/chandrashekharbangar18/Advanced_Playwright_Framework_10Feb#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^10.6.0",
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^26.6.4",
+    "allure-playwright": "^3.13.0",
+    "csv-parser": "^3.2.1",
+    "dotenv": "^18.0.6",
+    "eslint": "^10.12.0",
+    "prettier": "^3.9.9",
+    "typescript": "^7.0.2",
+    "winston": "^3.19.0",
+    "xlsx": "^0.18.5"
+  }
+}
