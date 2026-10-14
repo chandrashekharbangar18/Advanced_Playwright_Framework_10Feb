@@ -28,6 +28,7 @@ npm run test:chromium      # Run the Chromium project
 npm run test:firefox       # Run the Firefox project
 npm run test:debug         # Run tests in Playwright debug mode
 npx playwright test src/tests/login.spec.ts --headed --workers=1  # Run the login test with a visible browser
+npx playwright test src/tests/e2e-checkout.spec.ts --project=chromium --workers=1  # Run the checkout E2E scenario
 npm run test:report        # Open the HTML report
 npm run test:p0            # Run tests tagged @P0
 npm run test:p1            # Run tests tagged @p1
@@ -85,5 +86,25 @@ The login page object and `login.spec.ts` demonstrate the browser page-object fl
 Playwright is configured to save screenshots on failure and traces on the first retry. Video recording is enabled on non-Windows platforms for failed tests and disabled on Windows to avoid browser-context shutdown failures. The GitHub Actions workflow installs dependencies and browsers, runs the suite, and uploads the HTML report artifact.
 
 Test runs generate HTML, JSON, Allure, and custom TTA reports in `playwright-report/`, `test-results/`, `allure-results/`, and `tta-report/`. These generated reports and results are ignored by Git and should not be committed.
+
+### Run the checkout scenario in Jenkins
+
+Configure `STANDARD_USER` and `TTA_SECRET` as Jenkins credentials and expose them to the build as environment variables. Set `BASE_URL` if the job should target a URL other than the configured QA default. On a Linux Jenkins agent, use:
+
+```sh
+npm ci
+npx playwright install --with-deps chromium
+CI=true npx playwright test src/tests/e2e-checkout.spec.ts --project=chromium --workers=1
+```
+
+The custom TTA report is generated in `tta-report/` as `report_<timestamp>.html`; `tta-report/index.html` redirects to the latest run. Archive the report in Jenkins after the test step:
+
+```groovy
+post {
+    always {
+        archiveArtifacts artifacts: 'tta-report/**', allowEmptyArchive: false
+    }
+}
+```
 
 See [Phase 1 prompts](./docs/phase1/prompts.md) for the conversation prompt captured for this framework and a reusable student prompt.
