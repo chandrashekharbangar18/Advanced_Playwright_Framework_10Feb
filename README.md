@@ -108,3 +108,35 @@ post {
 ```
 
 See [Phase 1 prompts](./docs/phase1/prompts.md) for the conversation prompt captured for this framework and a reusable student prompt.
+
+## Checkout E2E flow
+
+The checkout scenario in `src/tests/e2e-checkout.spec.ts` runs through these user-facing stages:
+
+1. Log in and verify the inventory is ready.
+2. Add the red Test.allTheThings() T-shirt and open the cart.
+3. Enter customer information.
+4. Review the order, item price, tax, and total.
+5. Finish checkout and verify the order confirmation.
+
+The screenshots below show the application state at each stage:
+
+### 1. Inventory
+
+![TTACart inventory with the product selected for the checkout scenario](./docs/screenshots/checkout-01-inventory.png)
+
+### 2. Cart
+
+![Cart containing the selected T-shirt](./docs/screenshots/checkout-02-cart.png)
+
+### 3. Customer details
+
+![Checkout customer information form filled with sample data](./docs/screenshots/checkout-03-customer-details.png)
+
+### 4. Order overview
+
+![Checkout overview showing the item, tax, and total before placing the order](./docs/screenshots/checkout-04-order-overview.png)
+
+### 5. Order confirmation
+
+![Successful checkout confirmation](./docs/screenshots/checkout-05-order-confirmation.png)
