@@ -63,6 +63,22 @@ npx playwright test src/tests/apiTests --project=api
 
 `BASE_URL`, when set, takes precedence over `TTA_ENV` and `API_BASE_URL`. Remove or unset it if you want `TTA_ENV=api` to select the API URL. API tests that build their request URLs directly from `API_BASE_URL` can also use that variable without setting `TTA_ENV`.
 
+To run only the PUT booking API test, set `API_BASE_URL` and pass the spec path:
+
+PowerShell:
+
+```powershell
+$env:API_BASE_URL = "https://restful-booker.herokuapp.com"
+npx playwright test src/tests/apiTests/put_crud_operation.spec.ts --project=api
+```
+
+Bash:
+
+```bash
+export API_BASE_URL=https://restful-booker.herokuapp.com
+npx playwright test src/tests/apiTests/put_crud_operation.spec.ts --project=api
+```
+
 ## Repository structure
 
 ```text
