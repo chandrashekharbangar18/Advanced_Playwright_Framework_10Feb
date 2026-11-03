@@ -1,0 +1,35 @@
+2026-10-09 17:40:15 [info] [LoginPage] loginAs standard_user
+2026-10-09 17:41:20 [info] [LoginPage] loginAs standard_user
+2026-10-09 17:43:19 [info] [LoginPage] loginAs standard_user
+2026-10-09 17:44:08 [info] [LoginPage] loginAs standard_user
+2026-10-09 17:44:38 [info] [LoginPage] loginAs standard_user
+2026-10-09 17:45:03 [info] [LoginPage] loginAs standard_user
+2026-10-09 17:45:55 [info] [LoginPage] loginAs standard_user
+2026-10-14 15:27:53 [info] [e2e-checkout] Step 1: logging in as standard_user
+2026-10-14 15:28:02 [info] [LoginPage] loginAs standard_user
+2026-10-14 15:29:00 [info] [e2e-checkout] Step 1: logging in as standard_user
+2026-10-14 15:29:01 [info] [LoginPage] loginAs standard_user
+2026-10-14 15:34:58 [info] [e2e-checkout] Step 1: logging in as standard_user
+2026-10-14 15:34:59 [info] [LoginPage] loginAs standard_user
+2026-10-15 12:52:58 [info] [e2e-checkout] Step 1: logging in as standard_user
+2026-10-15 12:53:06 [info] [LoginPage] loginAs standard_user
+2026-10-15 12:53:06 [info] [LoginPage] loginAs standard_user
+2026-11-02 16:07:15 [info] Created booking id: 3411
+2026-11-03 12:26:52 [info] Created auth token for PUT booking flow
+2026-11-03 12:26:52 [info] Created booking id for update: 3061
+2026-11-03 12:26:52 [info] Updated booking id 3061: Pramod Dutta
+2026-11-03 12:28:20 [info] Created booking id: 3831
+2026-11-03 12:28:20 [info] Created booking id: 3833
+2026-11-03 12:28:21 [info] Created auth token for PUT booking flow
+2026-11-03 12:28:21 [info] Created booking id for update: 3841
+2026-11-03 12:28:21 [info] Updated booking id 3841: Pramod Dutta
+2026-11-03 12:28:58 [info] Created booking id: 4150
+2026-11-03 12:28:58 [info] Created booking id: 4151
+2026-11-03 12:28:58 [info] Created auth token for PUT booking flow
+2026-11-03 12:28:59 [info] Created booking id for update: 4165
+2026-11-03 12:28:59 [info] Updated booking id 4165: Pramod Dutta
+2026-11-03 12:29:27 [info] Created booking id: 4417
+2026-11-03 12:29:28 [info] Created booking id: 4424
+2026-11-03 12:29:28 [info] Created auth token for PUT booking flow
+2026-11-03 12:29:29 [info] Created booking id for update: 4434
+2026-11-03 12:29:29 [info] Updated booking id 4434: Pramod Dutta
