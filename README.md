@@ -40,6 +40,29 @@ The active browser project is Chromium; the API project discovers tests under `s
 
 Screenshots are retained on failure and traces are captured on the first retry. Video recording is disabled on Windows because it caused browser-context shutdown failures in the current environment; it remains enabled on other platforms for failed tests.
 
+### Run API tests
+
+The `api` project selects API test files; it does not by itself select the API base URL. Set the environment to `api` so tests that use relative request paths (such as `/ping`) target Restful Booker rather than the default QA web app:
+
+PowerShell:
+
+```powershell
+$env:TTA_ENV = "api"
+$env:API_BASE_URL = "https://restful-booker.herokuapp.com"
+npx playwright test src/tests/apiTests --project=api
+```
+
+Bash:
+
+```bash
+unset BASE_URL
+export TTA_ENV=api
+export API_BASE_URL=https://restful-booker.herokuapp.com
+npx playwright test src/tests/apiTests --project=api
+```
+
+`BASE_URL`, when set, takes precedence over `TTA_ENV` and `API_BASE_URL`. Remove or unset it if you want `TTA_ENV=api` to select the API URL. API tests that build their request URLs directly from `API_BASE_URL` can also use that variable without setting `TTA_ENV`.
+
 ## Repository structure
 
 ```text
