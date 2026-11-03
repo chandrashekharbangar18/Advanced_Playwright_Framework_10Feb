@@ -63,7 +63,14 @@ npx playwright test src/tests/apiTests --project=api
 
 `BASE_URL`, when set, takes precedence over `TTA_ENV` and `API_BASE_URL`. Remove or unset it if you want `TTA_ENV=api` to select the API URL. API tests that build their request URLs directly from `API_BASE_URL` can also use that variable without setting `TTA_ENV`.
 
-To run only the PUT booking API test, set `API_BASE_URL` and pass the spec path:
+The API specs currently cover:
+
+- `basic_Ping.spec.ts` — verifies the Restful Booker health endpoint.
+- `new_ContextAPI.spec.ts` — verifies a separate API request context against GoRest.
+- `post_crud_operation.spec.ts` — verifies creating bookings.
+- `put_crud_operation.spec.ts` — verifies creating and updating a booking.
+
+To run one Restful Booker booking API test, set `API_BASE_URL` and pass its spec path. For example, to run the PUT booking test:
 
 PowerShell:
 
@@ -104,6 +111,7 @@ npx playwright test src/tests/apiTests/put_crud_operation.spec.ts --project=api
 │   │   └── LoginPage.ts      # TTACart login page object
 │   ├── testdata/             # Test data and data providers
 │   ├── tests/
+│   │   ├── apiTests/          # API test specs
 │   │   └── login.spec.ts
 │   └── utils/
 │       ├── CustomReporter.ts # Custom TTA HTML report
