@@ -112,7 +112,12 @@ npx playwright test src/tests/apiTests/01_basics/put_crud_operation.spec.ts --pr
 │   ├── testdata/             # Test data and data providers
 │   ├── cucumber/
 │   │   ├── level_01_Installation/
-│   │   │   └── feature/      # Cucumber feature files
+│   │   │   └── feature/      # Initial smoke feature
+│   │   ├── level_02_Basics/  # Login scenarios and step definitions
+│   │   ├── level_03_data-driven/
+│   │   │   ├── data/         # External scenario data
+│   │   │   ├── feature/      # Outlines, tables, and checkout features
+│   │   │   └── steps/
 │   │   └── support/          # Cucumber world and hooks
 │   ├── tests/
 │   │   ├── apiTests/
@@ -132,7 +137,16 @@ npx playwright test src/tests/apiTests/01_basics/put_crud_operation.spec.ts --pr
 └── tsconfig.json
 ```
 
-The Cucumber login smoke scenario is at `src/cucumber/level_01_Installation/feature/smoke.feature`. Its step definitions and support files are currently scaffolding; no Cucumber run command is configured yet.
+### Run Cucumber BDD tests
+
+The Level 1 profile runs login scenarios, including valid and rejected logins. The Level 2 profile adds scenario outlines, data-table cart coverage, and checkout scenarios using customer data from JSON. Both commands use the detailed `pretty` formatter and launch a headed browser:
+
+```bash
+npm run cucumber:level1
+npm run cucumber:level2
+```
+
+The profile definitions live in `cucumber.cjs`. Cucumber step definitions are TypeScript and run through `tsx`; `cross-env` sets `HEADED=1` consistently on Windows, macOS, and Linux. Browser setup and teardown are in `src/cucumber/support/hook.ts`.
 
 The login page object and `login.spec.ts` demonstrate the browser page-object flow. `BasePage` provides shared navigation and logging, while `UtilElementLocator` centralizes common locator actions. The API, config, fixtures, and testdata directories are extension points; keep reusable framework code in its corresponding folder rather than embedding it in tests.
 
