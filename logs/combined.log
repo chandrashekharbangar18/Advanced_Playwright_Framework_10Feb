@@ -33,3 +33,32 @@
 2026-11-03 12:29:28 [info] Created auth token for PUT booking flow
 2026-11-03 12:29:29 [info] Created booking id for update: 4434
 2026-11-03 12:29:29 [info] Updated booking id 4434: Pramod Dutta
+2026-11-20 15:13:02 [info] [LoginPage] loginAs standard_user
+2026-11-20 15:46:18 [info] [LoginPage] loginAs standard_user
+2026-11-20 15:46:20 [info] [LoginPage] loginAs locked_out_user
+2026-11-20 15:46:22 [info] [LoginPage] loginAs standard_user
+2026-11-20 15:49:02 [info] [LoginPage] loginAs standard_user
+2026-11-20 15:49:04 [info] [LoginPage] loginAs locked_out_user
+2026-11-20 15:49:06 [info] [LoginPage] loginAs standard_user
+2026-11-20 15:50:11 [info] [LoginPage] loginAs standard_user
+2026-11-20 15:50:14 [info] [LoginPage] loginAs locked_out_user
+2026-11-20 15:50:16 [info] [LoginPage] loginAs standard_user
+2026-11-20 15:52:35 [info] [LoginPage] loginAs standard_user
+2026-11-20 15:52:38 [info] [LoginPage] loginAs locked_out_user
+2026-11-20 15:52:39 [info] [LoginPage] loginAs standard_user
+2026-11-20 16:24:58 [info] [LoginPage] loginAs standard_user
+2026-11-20 16:25:02 [info] [LoginPage] loginAs standard_user
+2026-11-20 16:25:07 [info] [LoginPage] loginAs standard_user
+2026-11-20 16:25:11 [info] [LoginPage] loginAs standard_user
+2026-11-20 16:26:36 [info] [LoginPage] loginAs standard_user
+2026-11-20 16:26:39 [info] [LoginPage] loginAs standard_user
+2026-11-20 16:26:44 [info] [LoginPage] loginAs standard_user
+2026-11-20 16:26:48 [info] [LoginPage] loginAs standard_user
+2026-11-20 16:26:52 [info] [LoginPage] loginAs standard_user
+2026-11-20 16:26:55 [info] [LoginPage] loginAs problem_user
+2026-11-20 16:26:57 [info] [LoginPage] loginAs performance_glitch_user
+2026-11-20 16:27:04 [info] [LoginPage] loginAs locked_out_user
+2026-11-20 16:27:05 [info] [LoginPage] loginAs standard_user
+2026-11-20 16:27:17 [info] [LoginPage] loginAs standard_user
+2026-11-20 16:27:19 [info] [LoginPage] loginAs locked_out_user
+2026-11-20 16:27:21 [info] [LoginPage] loginAs standard_user
