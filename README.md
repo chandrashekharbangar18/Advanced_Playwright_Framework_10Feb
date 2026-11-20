@@ -28,7 +28,7 @@ npm run test:chromium      # Run the Chromium project
 npm run test:firefox       # Run the Firefox project
 npm run test:debug         # Run tests in Playwright debug mode
 npx playwright test src/tests/login.spec.ts --headed --workers=1  # Run the login test with a visible browser
-npx playwright test src/tests/e2e-checkout.spec.ts --project=chromium --workers=1  # Run the checkout E2E scenario
+npx playwright test src/tests/e2e/e2e-checkout.spec.ts --project=chromium --workers=1  # Run the checkout E2E scenario
 npm run test:report        # Open the HTML report
 npm run test:p0            # Run tests tagged @P0
 npm run test:p1            # Run tests tagged @p1
@@ -63,7 +63,7 @@ npx playwright test src/tests/apiTests --project=api
 
 `BASE_URL`, when set, takes precedence over `TTA_ENV` and `API_BASE_URL`. Remove or unset it if you want `TTA_ENV=api` to select the API URL. API tests that build their request URLs directly from `API_BASE_URL` can also use that variable without setting `TTA_ENV`.
 
-The API specs currently cover:
+The API specs under `src/tests/apiTests/01_basics/` currently cover:
 
 - `basic_Ping.spec.ts` — verifies the Restful Booker health endpoint.
 - `new_ContextAPI.spec.ts` — verifies a separate API request context against GoRest.
@@ -76,14 +76,14 @@ PowerShell:
 
 ```powershell
 $env:API_BASE_URL = "https://restful-booker.herokuapp.com"
-npx playwright test src/tests/apiTests/put_crud_operation.spec.ts --project=api
+npx playwright test src/tests/apiTests/01_basics/put_crud_operation.spec.ts --project=api
 ```
 
 Bash:
 
 ```bash
 export API_BASE_URL=https://restful-booker.herokuapp.com
-npx playwright test src/tests/apiTests/put_crud_operation.spec.ts --project=api
+npx playwright test src/tests/apiTests/01_basics/put_crud_operation.spec.ts --project=api
 ```
 
 ## Repository structure
@@ -110,8 +110,14 @@ npx playwright test src/tests/apiTests/put_crud_operation.spec.ts --project=api
 │   │   ├── BasePage.ts       # Shared page-object scaffolding
 │   │   └── LoginPage.ts      # TTACart login page object
 │   ├── testdata/             # Test data and data providers
+│   ├── cucumber/
+│   │   ├── level_01_Installation/
+│   │   │   └── feature/      # Cucumber feature files
+│   │   └── support/          # Cucumber world and hooks
 │   ├── tests/
-│   │   ├── apiTests/          # API test specs
+│   │   ├── apiTests/
+│   │   │   └── 01_basics/    # API test specs
+│   │   ├── e2e/              # Browser end-to-end specs
 │   │   └── login.spec.ts
 │   └── utils/
 │       ├── CustomReporter.ts # Custom TTA HTML report
@@ -125,6 +131,8 @@ npx playwright test src/tests/apiTests/put_crud_operation.spec.ts --project=api
 ├── playwright.config.ts
 └── tsconfig.json
 ```
+
+The Cucumber login smoke scenario is at `src/cucumber/level_01_Installation/feature/smoke.feature`. Its step definitions and support files are currently scaffolding; no Cucumber run command is configured yet.
 
 The login page object and `login.spec.ts` demonstrate the browser page-object flow. `BasePage` provides shared navigation and logging, while `UtilElementLocator` centralizes common locator actions. The API, config, fixtures, and testdata directories are extension points; keep reusable framework code in its corresponding folder rather than embedding it in tests.
 
@@ -141,7 +149,7 @@ Configure `STANDARD_USER` and `TTA_SECRET` as Jenkins credentials and expose the
 ```sh
 npm ci
 npx playwright install --with-deps chromium
-CI=true npx playwright test src/tests/e2e-checkout.spec.ts --project=chromium --workers=1
+CI=true npx playwright test src/tests/e2e/e2e-checkout.spec.ts --project=chromium --workers=1
 ```
 
 The custom TTA report is generated in `tta-report/` as `report_<timestamp>.html`; `tta-report/index.html` redirects to the latest run. Archive the report in Jenkins after the test step:
@@ -158,7 +166,7 @@ See [Phase 1 prompts](./docs/phase1/prompts.md) for the conversation prompt capt
 
 ## Checkout E2E flow
 
-The checkout scenario in `src/tests/e2e-checkout.spec.ts` runs through these user-facing stages:
+The checkout scenario in `src/tests/e2e/e2e-checkout.spec.ts` runs through these user-facing stages:
 
 1. Log in and verify the inventory is ready.
 2. Add the red Test.allTheThings() T-shirt and open the cart.

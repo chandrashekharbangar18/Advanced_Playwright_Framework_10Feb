@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/chandrashekharbangar18/Advanced_Playwright_Framework_10Feb#readme",
   "devDependencies": {
+    "@cucumber/cucumber": "^13.3.0",
     "@faker-js/faker": "^10.6.0",
     "@playwright/test": "^1.64.0",
     "@types/node": "^26.6.4",
@@ -42,6 +43,8 @@
     "dotenv": "^18.0.6",
     "eslint": "^10.12.0",
     "prettier": "^3.9.9",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^7.0.2",
     "winston": "^3.19.0",
     "xlsx": "^0.18.5"
